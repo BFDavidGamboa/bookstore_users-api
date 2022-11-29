@@ -12,6 +12,22 @@ func NewBadRequestError(message string) *RestErr {
 	return &RestErr{
 		Message: message,
 		Status:  http.StatusBadRequest,
-		Error:   "Bad Request",
+		Error:   "bad_request",
+	}
+}
+
+func NewNotFoundError(message string) *RestErr {
+	return &RestErr{
+		Message: message,
+		Status:  http.StatusRequestedRangeNotSatisfiable,
+		Error:   "not_found",
+	}
+}
+
+func NewRequestedRangeNotSatisfiable(message string) *RestErr {
+	return &RestErr{
+		Message: message,
+		Status:  http.StatusRequestedRangeNotSatisfiable,
+		Error:   "requested_range_not_satisfiable",
 	}
 }
