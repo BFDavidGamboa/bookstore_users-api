@@ -9,7 +9,6 @@ func GetBook(bookId int64) (*books.Book, *errors.RestErr) {
 	if bookId <= 0 {
 		return nil, errors.NewBadRequestError("invalid book Id")
 	}
-
 	result := &books.Book{Id: bookId}
 	if err := result.Get(); err != nil {
 		return nil, err

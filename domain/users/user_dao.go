@@ -23,9 +23,9 @@ func (user *User) Get() *errors.RestErr {
 	}
 	defer stmt.Close()
 
-	resutl := stmt.QueryRow(user.Id)
+	result := stmt.QueryRow(user.Id)
 
-	if err := resutl.Scan(&user.Id, &user.FirstName, &user.LastName, &user.Email, &user.Password, &user.DateCreated); err != nil {
+	if err := result.Scan(&user.Id, &user.FirstName, &user.LastName, &user.Email, &user.Password, &user.DateCreated); err != nil {
 		if strings.Contains(err.Error(), errorNoRows) {
 			return errors.NewNotFoundError(fmt.Sprintf("user %d not found", user.Id))
 		}
