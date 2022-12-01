@@ -31,3 +31,11 @@ func NewRequestedRangeNotSatisfiable(message string) *RestErr {
 		Error:   "requested_range_not_satisfiable",
 	}
 }
+
+func NewInternalServerError(message string) *RestErr {
+	return &RestErr{
+		Message: message,
+		Status:  http.StatusInternalServerError,
+		Error:   "internal_server_error",
+	}
+}
