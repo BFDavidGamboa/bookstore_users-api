@@ -4,10 +4,10 @@ import "github.com/BFDavidGamboa/bookstore_users-api/utils/errors"
 
 type Book struct {
 	Id          int64  `json:"id" binding:"required"`
-	Tittle      string `json:"tittle" binding:"required"`
+	Tittle      string `json:"tittle"`
 	Author      string `json:"author"`
 	Country     string `json:"country"`
-	Isbn        string `json:"isbn" binding:"required"`
+	Isbn        string `json:"isbn"`
 	DateCreated string `json:"date_created"`
 }
 

@@ -9,11 +9,14 @@ import (
 func mapUrls() {
 	router.GET("/ping", ping.Ping)
 
-	router.GET("/users/:user_id", users.GetUser)
-	router.GET("/users/search", users.FindUser)
-	router.POST("/users", users.CreateUser)
+	router.POST("/users", users.Create)
+	router.GET("/users/:user_id", users.Get)
+	router.PUT("/users/:user_id", users.Update)
+	router.PATCH("/users/:user_id", users.Update)
+	router.DELETE("/users/:user_id", users.Delete)
+	router.GET("internal/users/search", users.Search)
 
+	router.POST("/books", books.CreateBook)
 	router.GET("/books/:book_id", books.GetBook)
 	router.GET("/books/search", books.FindBook)
-	router.POST("/books", books.CreateBook)
 }
