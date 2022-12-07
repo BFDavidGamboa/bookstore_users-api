@@ -14,6 +14,13 @@ var (
 	Client *sql.DB
 )
 
+const (
+	mysqlUsername = "DB_MYSQL_USERNAME"
+	mysqlPassword = "DB_MYSQL_PASSWORD"
+	mysqlHost     = "DB_MYSQL_HOST"
+	mysqlScheme   = "DB_MYSQL_SCHEME"
+)
+
 func init() {
 	var err error
 
@@ -25,10 +32,10 @@ func init() {
 	//"%s:%s@tcp(%s)/%s?charser=utf8" represents
 	//%s user name: %s password @ tcp ( %s host)/ %s sql scheme ? charset
 	datasource := fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8",
-		os.Getenv("DB_MYSQL_USERNAME"),
-		os.Getenv("DB_MYSQL_PASSWORD"),
-		os.Getenv("DB_MYSQL_HOST"),
-		os.Getenv("DB_MYSQL_SCHEME"),
+		os.Getenv(mysqlUsername),
+		os.Getenv(mysqlPassword),
+		os.Getenv(mysqlHost),
+		os.Getenv(mysqlScheme),
 	)
 
 	Client, err = sql.Open("mysql", datasource)
