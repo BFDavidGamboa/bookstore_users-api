@@ -5,9 +5,10 @@ import (
 	"strconv"
 
 	"github.com/BFDavidGamboa/bookstore_oauth-go/oauth"
+	"github.com/BFDavidGamboa/bookstore_oauth-go/oauth/errors"
 	"github.com/BFDavidGamboa/bookstore_users-api/domain/users"
 	"github.com/BFDavidGamboa/bookstore_users-api/services"
-	"github.com/BFDavidGamboa/bookstore_users-api/utils/errors"
+	"github.com/BFDavidGamboa/bookstore_utils-go/rest_errors"
 
 	"github.com/gin-gonic/gin"
 )
@@ -15,10 +16,10 @@ import (
 func TestServiceInterfce() {
 }
 
-func getUserId(userIdParam string) (int64, *errors.RestErr) {
+func getUserId(userIdParam string) (int64, *rest_errors.RestErr) {
 	userId, userErr := strconv.ParseInt(userIdParam, 10, 64)
 	if userErr != nil {
-		return 0, errors.NewBadRequestError("user id should be a number ")
+		return 0, rest_errors.NewBadRequestError("user id should be a number ")
 	}
 	return userId, nil
 }

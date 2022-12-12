@@ -13,6 +13,7 @@ require github.com/mercadolibre/golang-restclient v0.0.0-20170701022150-51958130
 
 require (
 	github.com/BFDavidGamboa/bookstore_oauth-go v0.0.0-20221208144712-e96b6ab86e2f
+	github.com/BFDavidGamboa/bookstore_utils-go v0.0.0-20221212141558-f47aed46ddd3
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/go-playground/locales v0.14.0 // indirect
 	github.com/go-playground/universal-translator v0.18.0 // indirect
